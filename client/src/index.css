@@ -1,0 +1,213 @@
+body *{
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+);
+  height: 100px;
+}
+
+.authTitle {
+  text-align: center;
+}
+
+.authPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid 1px black;
+  border-radius: 10px;
+  width: auto;
+  min-width: 100px;
+  margin: 10vh 35vw;
+  padding: 30px;
+}
+
+.loginToggle {
+  text-decoration: underline;
+}
+
+.authForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profileName {
+  margin: 50px;
+  text-align: center;
+  font-weight: 900;
+  font-size: xx-large;
+}
+
+.profileAddIssue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileIssueForm {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  width: 50%;
+}
+.profileIssueForm div{
+  display: flex;
+  width: 100%;
+}
+.profileIssueForm label {
+  padding-right: 10px;
+}
+.descriptionInput {
+  width: 100%;
+  height: 20vw;
+  display:flex;
+  align-self: flex-start;
+}
+.titleInput {
+  width: 100%;
+}
+
+.profileIssueTitle {
+  text-decoration: underline;
+}
+
+.profilePastIssues {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.issueList {
+  width: 70%;
+}
+
+.issueAndComments {
+  border: solid 1px black;
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 1fr;
+  /* flex-direction: column;
+  justify-content: center; */
+  border-radius: 10px;
+  width: 100%;
+  padding: 20px;
+}
+
+.issueControls {
+  grid-column: 1/5;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: transparent;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 750px) {
+  .commentsToggle {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    text-align: center;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-decoration: none;
+    align-self: center;
+    color: white; 
+    background: grey;
+  }
+  .issue {
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+  }
+  .commentsCenter {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+}
+@media screen and (max-width: 750px) {
+  .commentsToggle {
+    grid-column: 2/4;
+    grid-row: 3/4;
+    text-align: center;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-decoration: none;
+    align-self: center;
+    color: white; 
+    background: grey;
+  }
+  .commentsCenter {
+    grid-column: 1/5;
+    grid-row: 4/5;
+    /* align-items: center; */
+  }
+  .issue {
+    width: 100%;
+    grid-column: 2/4;
+    grid-row: 2/3;
+    /* display: flex;
+    flex-direction: column; */
+  }
+}
+
+.comments {
+  text-align: left;
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: lightgray;
+  width: 90%;
+  padding: 10px;
+  flex-direction: column;
+}
+.votes {
+  display: flex
+}
+.public {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.publicTitle {
+  text-decoration: underline;
+}
