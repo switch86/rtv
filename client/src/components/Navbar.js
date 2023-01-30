@@ -19,7 +19,7 @@ export default function Navbar(props) {
     return (
         <div className="navbar">
             <Link style ={link} to='/profile'>Home</Link>
-            <Link style ={link} to='/public'>Public Stories</Link>
+            <Link style ={link} to='/public'>All Stories</Link>
             <button style={link} onClick={logout}>Log Out</button>
         </div>
     )

@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from 'axios'
-import { UserContext } from "./UserProvider";
 
 export const IssueContext = React.createContext()
 
@@ -14,13 +13,11 @@ userAxios.interceptors.request.use(config => {
 
 export default function IssueProvider(props) {
 
-    const {token} = useContext(UserContext)
-
     const [allIssues, setAllIssues] = useState([])
     const [userIssues, setUserIssues] = useState([])
 
     const getAllIssues = () => {
-        userAxios.get('/api/issues/')
+            userAxios.get('/api/issues/')
             .then(res => {
                 setAllIssues([...res.data])
             })
@@ -28,7 +25,7 @@ export default function IssueProvider(props) {
     }
 
     const getUserIssues = () => {
-        userAxios.get('/api/issues/user')
+            userAxios.get('/api/issues/user')
             .then(res => setUserIssues([...res.data]))
             .catch(err => console.log(err.response.data.errMsg))
     }
@@ -60,15 +57,11 @@ export default function IssueProvider(props) {
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        if(token !== '') {
-            getAllIssues()
-            getUserIssues()
-        }
-    }, [token])
 
     return (
         <IssueContext.Provider value={{
+            getAllIssues,
+            getUserIssues,
             allIssues,
             userIssues, 
             addIssue, 

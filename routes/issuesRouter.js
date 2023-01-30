@@ -58,36 +58,41 @@ issuesRouter.delete("/:issueId", (req, res, next) => {
 
 // Update issue
 issuesRouter.put("/:issueId", async(req, res, next) => {
+  //create new issue from incoming data data 
   const newBody = {
     ...req.body
   }
+  //find issue
   const currentIssue = await Issue.findOne({_id: req.params.issueId})
-
+  //spread values to new object
   const currentIssue2 = {
     comments: [...currentIssue.comments],
     upVotes: [...currentIssue.upVotes],
     downVotes: [...currentIssue.downVotes]
   }
-
+  // if there is data in upVoting and that array includes the userId block the user
   if(newBody.upVoting) {
     if(currentIssue2.upVotes.includes(newBody.userId)) {
       return
     }
-
+    //otherwise push the userId to upvotes in the new issue and filter downvotes to remove that userId
     currentIssue2.upVotes.push(newBody.userId)
     currentIssue2.downVotes = currentIssue2.downVotes.filter(downvote => downvote !== newBody.userId)
   }
+  // if there is a downVote in the request 
   if(newBody.downVoting) {
+    // check if the user has already downvoted and return 
     if(currentIssue2.downVotes.includes(newBody.userId)) {
       return
     }
-
+    // otherwise push the userId to downvotes and filter upvotes to remove that userId if it was there. 
     currentIssue2.downVotes.push(newBody.userId)
     currentIssue2.upVotes = currentIssue2.upVotes.filter(upvote => upvote !== newBody.userId)
   }
- 
+  // set the comments to add any new comments
   currentIssue2.comments = req.body.comments
 
+  //update the Issue in the database with the new issue object. 
   Issue.findOneAndUpdate(
     { _id: req.params.issueId },
     currentIssue2,

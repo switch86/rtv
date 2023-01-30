@@ -20,6 +20,14 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    isSponsor: {
+        type: Boolean,
+        default: false
+    },
+    isSponsee: {
+        type: Boolean, 
+        default: false
     }
 })
 
