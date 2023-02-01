@@ -14,7 +14,8 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 mongoose.connect(
-  process.env.MONGODB_URI, { useNewUrlParser: true }
+  'mongodb+srv://switch86:noah@cluster0.7py63yo.mongodb.net/?retryWrites=true&w=majority',
+() => console.log('Connected to DB')
 )
 .catch( err => console.log(err))
 
