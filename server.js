@@ -7,7 +7,7 @@ const { expressjwt: jwt } = require('express-jwt')
 const path = require("path")
 
 
-// process.env.SECRET
+process.env.SECRET
 
 
 app.use(express.json())
