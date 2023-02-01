@@ -1,7 +1,5 @@
 import React from "react";
 import Issue from './Issue'
-import {useContext} from "react"
-import IssueProvider from "../context/IssueProvider";
 
 export default function IssueList(props) {
 
