@@ -30,17 +30,17 @@ export default function IssueForm(props) {
         <form className='profileIssueForm' onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title" className="titleLabel">Title: </label>
-                <input 
+                <textarea
                     className="titleInput"
                     name='title'
                     value={title}
                     onChange={handleChange}
-                    placeholder="What's the headline?"
+                    placeholder="What did you do?"
                 />
             </div>
                 <label className="descriptionLabel" htmlFor="description">Description: </label>
             <div>
-                <input 
+                <textarea
                     className="descriptionInput"
                     name='description'
                     value={description}
@@ -48,7 +48,7 @@ export default function IssueForm(props) {
                     placeholder='Tell us more about the issue - we need the juicy details!'
                     />
             </div>
-            <button>Add Issue</button>
+            <button>Am I the A-hole?</button>
         </form>
     )
 }

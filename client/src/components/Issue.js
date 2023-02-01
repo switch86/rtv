@@ -31,20 +31,31 @@ export default function Issue(props) {
     }
 
     const isProfilePage = location.pathname.includes('profile')
-
+    const votes = upVotes.length - downVotes.length
+    var color
+    var voteComment
+    if (votes > 0) {
+        color = {color:"green"}
+        voteComment = "Not the A-hole"
+    } else if (votes < 0 ) {
+        color = {color:"red"}
+        voteComment="A-hole"
+    }
 
     return (
         <div className="issueAndComments">
             <div className="issueControls">
                 {isProfilePage && <button className='deleteButton' onClick={()=> deleteIssue(_id)}>X</button>}
                 <div className="votes">
-                    <span onClick={() => updateIssue(_id, {upVoting: true, userId: user._id})}><FontAwesomeIcon icon={faThumbsUp} /></span>
-                    <h3>{upVotes.length - downVotes.length}</h3>
-                    <span onClick={() => updateIssue(_id, {downVoting: true, userId: user._id})}><FontAwesomeIcon icon={faThumbsDown} /></span>
+                    <span onClick={() => updateIssue(_id, {upVoting: true, userId: user._id})} style={{color: "green"}}>Not the A-hole <FontAwesomeIcon icon={faThumbsUp} /></span>
+                    <h3 >Votes: {votes}</h3>
+                    <span onClick={() => updateIssue(_id, {downVoting: true, userId: user._id})}style={{color:"red"}}>You're the A-hole <FontAwesomeIcon icon={faThumbsDown} /></span>
                 </div>
             </div>
             <div className="issue">
-                <h1>{title}</h1>
+                {/* <h3>Voters Decided: </h3> */}
+                <h3 style={color}>{voteComment}</h3>
+                <h1>AITA? {title}</h1>
                 <h3>{description}</h3>
             </div>
                 <p className="commentsToggle" onClick={() => setCommentsToggle(prevState => !prevState)}>Comments</p>

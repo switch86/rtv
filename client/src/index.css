@@ -84,6 +84,7 @@ body *{
 .descriptionInput {
   width: 100%;
   height: 20vw;
+  overflow-wrap:break-word;
   display:flex;
   align-self: flex-start;
 }
@@ -110,8 +111,6 @@ body *{
   border: solid 1px black;
   display: grid;
   grid-template-columns: 1fr 3fr 3fr 1fr;
-  /* flex-direction: column;
-  justify-content: center; */
   border-radius: 10px;
   width: 100%;
   padding: 20px;
@@ -148,7 +147,7 @@ body *{
   }
   .issue {
     width: 100%;
-    grid-column: 2/3;
+    grid-column: 2/4;
     grid-row: 2/3;
     display: flex;
     flex-direction: column;
