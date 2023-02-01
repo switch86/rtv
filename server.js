@@ -14,9 +14,9 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 mongoose.connect(
-  process.env.MONGODB_URI, { useNewUrlParser: true },
-  () => console.log('Connected to DB')
+  process.env.MONGODB_URI, { useNewUrlParser: true }
 )
+.catch( err => console.log(err))
 
 
 app.use('/auth', require('./routes/authRouter.js'))
