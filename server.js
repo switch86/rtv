@@ -7,14 +7,14 @@ const { expressjwt: jwt } = require('express-jwt')
 const path = require("path")
 
 
-process.env.SECRET
+// process.env.SECRET
 
 
 app.use(express.json())
 app.use(morgan('dev'))
 
 mongoose.connect(
-  'mongodb+srv://switch86:noah@cluster0.7py63yo.mongodb.net/?retryWrites=true&w=majority',
+  process.env.MONGODB_URI, { useNewUrlParser: true },
   () => console.log('Connected to DB')
 )
 
