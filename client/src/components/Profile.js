@@ -13,11 +13,11 @@ export default function Profile() {
         <div className="profile">
             <h1 className="profileName">Welcome @{username}!</h1>
             <div className="profileAddIssue">
-                <h3>Get Advice</h3>
+                <h3>Make a new post</h3>
                 <IssueForm addIssue={addIssue}/> 
             </div>
             <div className="profilePastIssues">
-                <h2 className="profileIssuesTitle">Past Issues</h2>
+                <h2 className="profileIssuesTitle">Previous</h2>
                 <IssueList issues={userIssues}/>
             </div>
         </div>
