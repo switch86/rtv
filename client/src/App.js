@@ -13,15 +13,13 @@ export default function App() {
   const {token, logout} = useContext(UserContext)
   const {getAllIssues, getUserIssues} = useContext(IssueContext)
 
-  
+  // when toek updates sand is not null, get all issues and user issues as defined in context files 
   useEffect(() => {
     if(token !== ''){
       getAllIssues()
       getUserIssues()
     } 
   }, [token])
-
-
 
   return (
     <div className="app">
